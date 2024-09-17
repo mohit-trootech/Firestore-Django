@@ -1,0 +1,14 @@
+<script>
+    var data = [
+        {% for article in articles %}
+    [
+        "{{forloop.counter}}",
+        "{{article.title}}",
+        "{{article.description}}",
+        "<button class='btn btn-accent articleDeleteAction' id='article-{{article.id}}'>Delete</button>"] {%if not forloop.last %}, {% endif %}
+    {% endfor %}
+    ]
+    $('#myTable').DataTable({
+        data: data
+    });
+</script>

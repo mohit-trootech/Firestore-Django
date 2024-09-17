@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block title %}Listing{%endblock%}
+
+{% block content %}
+<div class="container p-3 m-3 mx-auto bg-body-tertiary rounded overflow-auto">
+    <table id="myTable" class="table table-hover">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Title</th>
+                <th scope="col">Description</th>
+                <th scope="col">Action</th>
+            </tr>
+        </thead>
+        <tbody class="text-trunacate"></tbody>
+    </table>
+</div>
+
+{% endblock %}
+{% block script %}
+{% include 'firestore/datatable.html' %}
+{% endblock %}

@@ -1,0 +1,50 @@
+{% load static %}
+<dialog id="profile_modal" class="modal w-full h-full">
+    <div class="modal-box w-full h-full ">
+        <form action="" method="post" enctype="multipart/form-data">
+            <h3 class="text-lg font-bold">Update Profile</h3>
+            <p class="py-4">
+                {% csrf_token %}
+                <label class="form-control w-full" for="id_profile">
+                    <div class="label">
+                        <span class="form-text">Profile</span>
+                    </div>
+                    <input type="file" accept="image/*" id="id_profile" name="profile"
+                        class="file-input input-bordered w-full">
+                </label>
+                <label class="form-control w-full" for="id_name">
+                    <div class="label">
+                        <span class="form-text">Name</span>
+                    </div>
+                    <input type="text" id="id_name" value="{{user.name}}" name="name"
+                        class="input input-bordered w-full">
+                </label>
+                <label class="form-control w-full" for="id_age">
+                    <div class="label">
+                        <span class="form-text">Age</span>
+                    </div>
+                    <input type="number" value="{{user.age}}" id="id_age" name="age"
+                        class="input input-bordered w-full">
+                </label>
+                <label class="form-control w-full" for="id_phone">
+                    <div class="label">
+                        <span class="form-text">Phone</span>
+                    </div>
+                    <input type="tel" value="{{user.phone}}" id="id_phone" name="phone"
+                        class="input input-bordered w-full" pattern="[789]{1}[0-9]{9}">
+                </label>
+                <label class="form-control w-full" for="id_address">
+                    <div class="label">
+                        <span class="form-text">Address</span>
+                    </div>
+                    <input type="text" id="id_address" name="address" class="input input-bordered w-full"
+                        value="{{user.address}}">
+                </label>
+            <div class=" modal-action">
+                <button class="btn btn-warning" id="locationBtn" type="button">Address</button>
+                <button class="btn btn-primary" type="submit">Update</button>
+            </div>
+        </form>
+    </div>
+</dialog>
+<script src="{% static 'js/location.js' %}"></script>

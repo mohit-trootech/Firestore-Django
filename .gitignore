@@ -1,0 +1,6 @@
+.json/*
+.env
+.venv
+.vscode
+__pycache__
+db.sqlite3

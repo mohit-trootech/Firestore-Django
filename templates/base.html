@@ -1,0 +1,30 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>{% block title %}Firestore{% endblock %}</title>
+	{% block favicon %}
+	<link rel="shortcut icon" href="{% static 'img/firebase.png' %}" type="image/x-icon" />
+	{% endblock%} {% include 'required/css.html' %}
+</head>
+
+<body data-theme="dark">
+	<div id="firebase-main">
+		<!-- Navbar Start -->
+		{% include 'required/navbar.html' %}
+		<!-- Navbar End -->
+		{% block content %}
+		{%endblock %}
+		<!-- Footer Start -->
+		{% include 'required/footer.html' %}
+		<!-- Footer End -->
+	</div>
+	{% include 'required/error.html' %}
+</body>
+{% include 'required/js.html' %}
+{% block script %}{% endblock %}
+
+</html>

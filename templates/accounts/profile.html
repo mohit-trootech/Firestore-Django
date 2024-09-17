@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Profile{% endblock %}
+{% block content %}
+<!-- component -->
+<!-- Open the modal using ID.showModal() method -->
+<div class="flex flex-wrap items-center justify-center">
+    <div class="container lg:w-2/6 xl:w-2/7 sm:w-full md:w-2/3 shadow-lg transform">
+        <div class="h-32 overflow-hidden">
+            <img class="w-full"
+                src="https://images.unsplash.com/photo-1605379399642-870262d3d051?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2000&q=80"
+                alt="" />
+        </div>
+        <div class="flex justify-center px-5 -mt-12">
+            {% if user.profile %}
+            <img class="h-32 w-32 p-2 rounded-full object-cover"
+                src="https://firebasestorage.googleapis.com/v0/b/sample-f6d86.appspot.com/o/{{user.name}}?alt=media&amp;token={{user.profile}}"
+                alt="" />
+            {% else %}
+            <img class="h-32 w-32 p-2 rounded-full"
+                src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2000&q=80"
+                alt="" />
+            {% endif %}
+        </div>
+        <div class="">
+            <div class="text-center px-14">
+                <h2 class="text-3xl font-bold">{{user.name}}</h2>
+                <p><button class="btn btn-primary btn-block mt-3" onclick="profile_modal.showModal()">Update
+                        Profile</button></p>
+            </div>
+            <hr class=" mt-6 mb-3" />
+            <dl class="">
+                <div class="px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                    <dt class="text-sm font-medium">
+                        Full name
+                    </dt>
+                    <dd class="mt-1 text-sm sm:mt-0 sm:col-span-2">
+                        {{user.name}}
+                    </dd>
+                </div>
+                <div class="px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                    <dt class="text-sm font-medium">
+                        Age
+                    </dt>
+                    <dd class="mt-1 text-sm sm:mt-0 sm:col-span-2">
+                        {{user.age}}
+                    </dd>
+                </div>
+                <div class="px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                    <dt class="text-sm font-medium">
+                        Phone
+                    </dt>
+                    <dd class="mt-1 text-sm sm:mt-0 sm:col-span-2">
+                        {{user.phone}}
+                    </dd>
+                </div>
+                <div class="px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                    <dt class="text-sm font-medium">
+                        Address
+                    </dt>
+                    <dd class="mt-1 text-sm sm:mt-0 sm:col-span-2">
+                        {{user.address}}
+                    </dd>
+                </div>
+            </dl>
+        </div>
+    </div>
+</div>
+{% include "accounts/modal_update_profile.html" %}
+{% endblock %}
